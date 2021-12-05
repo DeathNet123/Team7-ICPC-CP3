@@ -1,0 +1,326 @@
+	------------------------- 
+	|STL has four components|
+	-------------------------
+
+1. Algorithms
+2. Functions
+3. Containers
+4. Iterators
+
+(Working Knowledge of Template classes are required to work with stl)
+
+1. Algorithm:
+-------------
+The header algorithm defines a collection of functions especially designed to be used on ranges of elements.They act on containers and provide means for various operations for the contents of the containers.
+
+a) sort : "std::sort(startaddress, endaddress)", 
+		: sorts in the range of [startaddress,endaddress)
+		: std::sort(startaddress, endaddress, greater<int>()) for descending order,
+		: We can also write our own comparator function and pass it as a third parameter. This “comparator” function returns a value; convertible to bool
+
+b) search : "std::binary_search(startaddress, endaddress, valuetofind)",
+		  : true if an element equal to valuetofind is found, else false.
+		  
+		  : Iterator "std::lower_bound(Iterator first, Iterator last, const val)" 
+		  :	returns an iterator pointing to the first element in the range [first,last) which has a value not less than ‘val’. 
+		  
+		  :	Iterator "std::upper_bound(Iterator first, Iterator last, const val)" 
+		  :	returns an iterator pointing to the first element in the range [first,last) which has a value greater than ‘val’. 
+
+c) reverse: "std::reverse(first_iterator, last_iterator)" – To reverse an unordered container(i.e vector) 
+
+d) range : "*std::max_element (first_iterator, last_iterator)" – To find the maximum element of a container.
+		 : "*std::min_element (first_iterator, last_iterator)" – To find the minimum element of a container.
+		 : " std::accumulate(first_iterator, last_iterator, initial value of sum)" – Does the summation of cantianer elements.
+		 : " std::count(first_iterator, last_iterator,x)" – To count the occurrences of x in a container.
+		 : " std::next_permutation(first_iterator, last_iterator)" – This modify the container(vector) to its next permutation.
+		 : " std::prev_permutation(first_iterator, last_iterator)" – This modified the container(vector) to its previous permutation.
+
+e) array : std::any_of(), std::all_of(), std::none_of(), iota(start, end, start_value)
+
+
+2. Containers:
+--------------
+
+a) Vector: (<vector>):
+----------------------
+Vectors are same as dynamic arrays with the ability to resize itself automatically when an element is inserted or deleted, with their storage being handled automatically by the container
+
+---------
+|Methods|
+---------
+
+Iterators:
+==========
+1. "begin()" – Returns an iterator pointing to the first element in the vector
+2. "end()" – Returns an iterator pointing to the theoretical element that follows the last element in the vector
+3. "rbegin()" – Returns a reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element
+4. "rend()" – Returns a reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end)
+5. "cbegin()" – Returns a constant iterator pointing to the first element in the vector.
+6. "cend()" – Returns a constant iterator pointing to the theoretical element that follows the last element in the vector.
+7. "crbegin()" – Returns a constant reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element
+8. "crend()" – Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end)
+
+Capacity:
+=========
+1. "size()" – Returns the number of elements in the vector.
+2. "max_size()" – Returns the maximum number of elements that the vector can hold.
+3. "capacity()" – Returns the size of the storage space currently allocated to the vector expressed as number of elements.
+4. "resize(n)" – Resizes the container so that it contains ‘n’ elements.
+5. "empty()" – Returns whether the container is empty.
+6. "shrink_to_fit()" – Reduces the capacity of the container to fit its size and destroys all elements beyond the capacity.
+7. "reserve(n)" – Requests that the vector capacity be at least enough to contain n elements.
+
+Element access:
+===============
+1. "operator [index]" – Returns a reference to the element at position ‘index’ in the vector
+2. "at(index)" – Returns a reference to the element at position ‘index’ in the vector
+3. front()" – Returns a reference to the first element in the vector
+4. "back()" – Returns a reference to the last element in the vector
+5. "data()" – Returns a direct pointer to the memory array used internally by the vector to store its owned elements
+
+Modifiers:
+==========
+1. "assign(index, new_val)" – It assigns new value to the vector elements by replacing old ones
+2. "push_back(val)" – It push the elements into a vector from the back
+3. "pop_back()" – It is used to pop or remove elements from a vector from the back.
+4. "insert(index, new_val)" – It inserts new elements before the element at the specified position
+5. "erase(index)" – It is used to remove elements from a container from the specified position or range.
+6. "swap()" – It is used to swap the contents of one vector with another vector of same type. Sizes may differ.
+7. "clear()" – It is used to remove all the elements of the vector container
+8. "emplace()" – It extends the container by inserting new element at position
+9. "emplace_back()" – It is used to insert a new element into the vector container, the new element is added to the end of the vector
+
+
+b) List: (<list>-header):
+-------------------------
+Lists are sequence containers that allow non-contiguous memory allocation. As compared to vector, list has slow traversal, but once a position has been found, insertion and deletion are quick.
+
+---------
+|Methods|
+---------
+
+1. "front()" – Returns the value of the first element in the list.
+2. "back()" – Returns the value of the last element in the list .
+3. "push_front(index)" – Adds a new element ‘index’ at the beginning of the list .
+4. "push_back(index)" – Adds a new element ‘index’ at the end of the list.
+5. "pop_front()" – Removes the first element of the list, and reduces size of the list by 1.
+6. "pop_back()" – Removes the last element of the list, and reduces size of the list by 1
+7. "begin()" function returns an iterator pointing to the first element of the list
+8. "end()" function returns an iterator pointing to the theoretical last element which follows the last element.
+9. "rbegin()" returns a reverse iterator which points to the last element of the list. "rend()" returns a reverse iterator which points to the position before the beginning of the list.
+10. "empty()" – Returns whether the list is empty(1) or not(0).
+11. "insert()" – Inserts new elements in the list before the element at a specified position.
+12. "erase()" – Removes a single element or a range of elements from the list.
+13. "assign()" – Assigns new elements to list by replacing current elements and resizes the list.
+14. "remove()" – Removes all the elements from the list, which are equal to given element.
+15. "list::remove_if()" is used to remove all the values from the list that correspond true to the predicate or condition given as parameter to the function.
+16. "reverse()" – Reverses the list.
+17. "size()" – Returns the number of elements in the list.
+18. "resize()" - function is Used to resize a list container.
+19. "sort()" – Sorts the list in increasing order.
+20. "max_size()" function Returns the maximum number of elements a list container can hold.
+21. "unique()" in C++ STL– Removes all duplicate consecutive elements from the list.
+22. "emplace_front()" function is used to insert a new element into the list container, the new element is added to the beginning of the list. "emplace_back()"" function is used to insert a new element into the list container, the new element is added to the end of the list.
+23. "clear()" function is used to remove all the elements of the list container, thus making it size 0.
+24. "operator=" This operator is used to assign new contents to the container by replacing the existing contents.
+25. "swap() "This function is used to swap the contents of one list with another list of same type and size.
+26. "splice(") function is used to transfer elements from one list to another.
+27. "merge()" function Merges two sorted lists into one
+28. "emplace"() function Extends list by inserting new element at a given position.
+
+
+c) Deque: (<deque>):
+--------------------
+Double ended queues are sequence containers with the feature of expansion and contraction on both the ends.
+They are similar to vectors, but are more efficient in case of insertion and deletion of elements. Unlike vectors,
+contiguous storage allocation may not be guaranteed.
+
+--> The functions for deque are same as vector, with an addition of push and pop operations for both front and back.
+
+
+d) Forward List: (<forward_list>):
+----------------------------------
+
+---------
+|Methods|
+---------
+
+General:
+========
+1. "assign()" : This function is used to assign values to forward list, its another variant is used to assign repeated elements. i.e. forward_list::assign(), will assign 5 elements with value 10.
+2. "push_front()" : This function is used to insert the element at the first position on forward list. The value from this function is copied to the space before first element in the container. The size of forward list increases by 1.
+3. "emplace_front()" : This function is similar to the previous function but in this no copying operation occurs, the element is created directly at the memory before the first element of the forward list.
+4. "pop_front()" : This function is used to delete the first element of list
+5. "insert_after()" : This function gives us a choice to insert elements at any position in forward list. The arguments in this function are copied at the desired position.
+6. "emplace_after()" : This function also does the same operation as above function but the elements are directly made without any copy operation.
+7. "erase_after()" : This function is used to erase elements from a particular position in the forward list.
+8. "remove()" : This function removes the particular element from the forward list mentioned in its argument.
+9. "remove_if()" : This function removes according to the condition in its argument.
+10. "splice_after()" : This function transfers elements from one forward list to other.
+11. "max_size()" – Returns the maximum number of elements can be held by forward_list.
+12. "resize()" – Changes the size of forward_list.
+
+
+Iterators:
+==========
+1. "front()" – This function is used to reference the first element of the forward list container.
+2. "begin()" – function is used to return an iterator pointing to the first element of the forward list container.
+3. "end()" – end() function is used to return an iterator pointing to the last element of the list container.
+4. "cbegin()" – Returns a constant iterator pointing to the first element of the forward_list.
+5. "cend()" – Returns a constant iterator pointing to the past-the-last element of the forward_list.
+6. "before_begin()" – Returns a iterator which points to the position before the first element of the forward_list.
+7. "cbefore_begin()" – Returns a constant random access iterator which points to the position before the first element of the forward_list.
+
+
+e) Queue: (<queue>):
+--------------------
+Queues are a type of container adaptors which operate in a first in first out (FIFO) type of arrangement. Elements are
+inserted at the back (end) and are deleted from the front. Queues use an encapsulated object of deque or list 
+
+---------
+|Methods|
+---------
+
+push(), pop(), front(), back(), empty() ...
+
+
+f) Priority Queue: (<queue>):
+-----------------------------
+Priority queues are a type of container adapters, specifically designed such that the first element of the queue is the
+greatest of all elements in the queue and elements are in non increasing order (hence we can see that each element of
+the queue has a priority {fixed order}).
+
+---------
+|Methods|
+---------
+
+1. "empty()" - function returns whether the queue is empty.
+2. "size()" - function returns the size of the queue.
+3. "top()" - Returns a reference to the top most element of the queue
+4. "push(index)" - function adds the element ‘index’ at the end of the queue.
+5. "pop()" - function deletes the first element of the queue.
+6. "swap()" - This function is used to swap the contents of one priority queue with another priority queue of same type and size.
+7. "emplace()" - This function is used to insert a new element into the priority queue container, the new element is added to the top of the priority queue.
+
+
+f) Set: (<set>):
+----------------
+Sets are a type of associative containers in which each element has to be unique, because the value of the element 
+identifies it. The value of the element cannot be modified once it is added to the set, though it is possible to remove 
+and add the modified value of that element.
+
+---------
+|Methods|
+---------
+
+Iterators:
+==========
+1. "begin()" – Returns an iterator to the first element in the set.
+2. "end()" – Returns an iterator to the theoretical element that follows last element in the set.
+3. "rbegin()"– Returns a reverse iterator pointing to the last element in the container.
+4. "rend()"– Returns a reverse iterator pointing to the theoretical element right before the first element in the set container.
+5. "crbegin()"– Returns a constant iterator pointing to the last element in the container.
+6. "crend()" – Returns a constant iterator pointing to the position just before the first element in the container.
+7. "cbegin()"– Returns a constant iterator pointing to the first element in the container.
+8. "cend()" – Returns a constant iterator pointing to the position past the last element in the container.
+
+
+General:
+========
+1. "size()" – Returns the number of elements in the set.
+2. "max_size()" – Returns the maximum number of elements that the set can hold.
+3. "empty()" – Returns whether the set is empty.
+4. "insert(const index)" – Adds a new element ‘index’ to the set.
+5. "insert(iterator position, const index)" – Adds a new element ‘index’ at the position pointed by iterator.
+6. "erase(iterator position)" – Removes the element at the position pointed by the iterator.
+7. "erase(const index)" – Removes the value ‘index’ from the set.
+8. "clear()" – Removes all the elements from the set.
+9. "key_comp()" / "value_comp()" – Returns the object that determines how the elements in the set are ordered (‘<‘ by default).
+10. "find(const index)" – Returns an iterator to the element ‘index’ in the set if found, else returns the iterator to end.
+11. "count(const index)" – Returns 1 or 0 based on the element ‘index’ is present in the set or not.
+12. "lower_bound(const index)" – Returns an iterator to the first element that is equivalent to ‘index’ or definitely will not go before the element ‘index’ in the set.
+13. "upper_bound(const index)" – Returns an iterator to the first element that will go after the element ‘index’ in the set.
+14. "equal_range()" – The function returns an iterator of pairs. (key_comp). The pair refers to the range that includes all the elements in the container which have a key equivalent to k.
+15. "emplace()" – This function is used to insert a new element into the set container, only if the element to be inserted is unique and does not already exists in the set.
+16. "emplace_hint()" – Returns an iterator pointing to the position where the insertion is done. If the element passed in the parameter already exists, then it returns an iterator pointing to the position where the existing element is.
+17. "swap()" – This function is used to exchange the contents of two sets but the sets must be of same type, although sizes may differ.
+
+
+g) multiset: (<set>):
+---------------------
+Multisets are a type of associative containers similar to set, with an exception that multiple elements can have same 
+values.
+
+--> The functions for multiset are same as set.
+
+
+h) map: (<map>):
+----------------
+Maps are associative containers that store elements in a mapped fashion. Each element has a key value and a mapped 
+value. No two mapped values can have same key values.
+
+---------
+|Methods|
+---------
+
+1. "begin()" – Returns an iterator to the first element in the map
+2. "end()" – Returns an iterator to the theoretical element that follows last element in the map .. and all other types
+3. "size()" – Returns the number of elements in the map
+4. "max_size()" – Returns the maximum number of elements that the map can hold
+5. "empty()" – Returns whether the map is empty
+6. "insert(keyvalue, mapvalue)" – Adds a new element to the map
+7. "erase(iterator position)" – Removes the element at the position pointed by the iterator
+8. "erase(const key)" – Removes the key value ‘key’ from the map
+9. "clear()" – Removes all the elements from the map
+10. "find(key)" - Returns an iterator to the element with key value ‘key’ in the map if found, else returns the iterator to end
+11. "operator[key]" - Returns the associated value with the key. If key don't exist, throws an error.
+
+
+i) multimap: (<map>):
+---------------------
+Multimap is similar to map with an addition that multiple elements can have same keys. Also, it is NOT required that the
+key value and mapped value pair has to be unique in this case. One important thing to note about multimap is that 
+multimap keeps all the keys in sorted order always. These properties of multimap makes it very much useful in 
+competitive programming.
+
+--> The functions for multimap are same as map.
+
+
+j) unordered_map: (<unordered_map>):
+------------------------------------
+unordered_map is an associated container that stores elements formed by combination of key value and a mapped value. The
+key value is used to uniquely identify the element and mapped value is the content associated with the key. Both key and
+value can be of any type predefined or user-defined. 
+Internally unordered_map is implemented using Hash Table, the key provided to map are hashed into indices of hash table
+that is why performance of data structure depends on hash function a lot but on an average the cost of search, insert 
+and delete from hash table is O(1). 
+
+--> The functions for unordered_map are same as map.
+
+----------------------
+|unordered_map vs map|
+----------------------
+
+map (like set) is an ordered sequence of unique keys whereas in unordered_map key can be stored in any order, so 
+unordered. Map is implemented as balanced tree structure that is why it is possible to maintain an order between the 
+elements (by specific tree traversal). Time complexity of map operations is O(Log n) while for unordered_map, it is O(1)
+on average.
+
+3. Iterators:
+-------------
+Iterators are used to point at the memory addresses of STL containers. They are primarily used in sequence of numbers, characters etc. They reduce the complexity and execution time of program.
+
+ ==========
+|Operations|
+ ==========
+
+1. "stl_container.begin()" :- This function is used to return the beginning position of the container.
+
+2. "stl_container.end()" :- This function is used to return the after end position of the container.
+
+3. "advance(itr, n)" :- This function is used to increment the iterator position till the specified number mentioned in its arguments
+
+--------------------------------------------------------
+For more reference:
+https://www.hackerearth.com/practice/notes/standard-template-library/
