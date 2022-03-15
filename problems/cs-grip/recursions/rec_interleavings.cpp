@@ -4,7 +4,7 @@ Find all interleavings of given strings that can be formed from all the characte
 #include<iostream>
 #include<unordered_set>
 using namespace std;
-void print_interleavings(unordered_set<string> &l, string x, string y, int idx, int kdx, bool flag =false)
+void print_interleavings(unordered_set<string> &l, string x, string y, int idx, int kdx, bool flag = false)
 {
     if(idx > x.length() || kdx > y.length()) return;
     if(!flag)

@@ -13,7 +13,7 @@ int cross_sum(int mid, int s, int e, vector<int> data)
     int max1 = 0, max2 = 0, sum = 0;
     for(int idx = mid; idx >= s; idx--)
     {
-        sum+= data[idx];
+        sum += data[idx];
         if(sum > max1)
             max1 = sum;
     }

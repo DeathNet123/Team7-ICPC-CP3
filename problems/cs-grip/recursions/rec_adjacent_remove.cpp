@@ -7,17 +7,21 @@ string remove_adjacent(int idx, string result, string x)
 {
     if(idx == x.length())
         return result;
-    if(x[idx] != x[idx - 1 ])
-        result = result + x[idx - 1];
+    if(x[idx] != x[idx - 1])
+    {
+        result = result + x[idx];
+    }
     return remove_adjacent(idx+1, result, x);
 }
 string remove_adjacent(string x)
 {
-    return remove_adjacent(0, "", x);
+    string result = "";
+    result.push_back(x[0]);
+    return remove_adjacent(1, result, x);
 }
 int main(void)
 {
-    string s = "AABBBCDDD";
+    string s ="AABBBCDDD";
     cout<<remove_adjacent(s);
     return 0;
 }
