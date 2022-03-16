@@ -3,6 +3,7 @@
 #include<string>
 #include<vector>
 using namespace std;
+
 int** LCS(string x, string y)
 {
     int **dp = new int *[x.length()+1];
@@ -35,10 +36,14 @@ int** LCS(string x, string y)
     }
     return dp;
 }
+void print_lcs(string x, int idx, int kdx)
+{
+    if(idx == 0 || kdx == 0) return; 
+}
 int main(void)
 {
-    string x = "AABACL";
-    string y = "AAABCV";
+    string x = "AABCBAALMNO";
+    string y = "NFEQRAAAA";
     LCS(x, y);
     return 0;
 }
