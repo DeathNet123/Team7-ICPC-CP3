@@ -45,7 +45,7 @@ int ** LCSUB(string x, string y)
 }
 int main(void)
 {
-    string x = "ABABC", y = "BABCA";
+    string x = "ABABCALEVE", y = "BABCAL";
     LCSUB(x, y);   
     return 0;
 }
