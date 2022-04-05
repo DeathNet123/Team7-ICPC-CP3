@@ -3,6 +3,7 @@ using namespace std;
 int main(void)
 {
     long long n{138367};
+    cin>>n;
     while(n != 1)
     {
         cout << n<<" ";
