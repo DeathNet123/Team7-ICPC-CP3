@@ -1,3 +1,10 @@
+/*
+1.Check the sum of the main array by using summation formula if even then continue else don't.
+2.Put the last number in the set 1 and find difference between the set 1 and set 2.
+3.The diff / 2 has to be added in set 1 to make the both set equal.
+4.Run the loop on the set 2 in reverse order and make greedy choice and them on set 1 as 
+long as diff / 2 is not collected in the end print the both set. 
+*/
 #include<iostream>
 #include<deque>
 
